@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -5,8 +8,12 @@ public abstract class  Lab3 {
 
     static String regexNotLetters = "[^а-яА-Я]+?";
 
-    public static void main(String[] args) {
-        String s = "Вадян пил вкусный чай и здорово работал теплой ночью, кидок.";
+    public static void main(String[] args) throws FileNotFoundException {
+    	String s = "";
+    	Scanner in = new Scanner(new File("C:\\Virtuals\\MP35\\file.txt"));
+    	while(in.hasNext())
+    	s += in.nextLine() + "\r\n";
+    	in.close();
         System.out.println(getNumOfVerbs(s));
         System.out.println(getNumOfAdj(s));
         System.out.println(getNumOfAdv(s));
